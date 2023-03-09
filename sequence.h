@@ -111,5 +111,5 @@ namespace CS3358_SP2023_A04_sequence
       size_type current_index;
    };
 }
-#include "sequence.cpp"
+#include "sequence.Template"
 #endif
