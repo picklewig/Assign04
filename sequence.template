@@ -75,7 +75,7 @@ namespace CS3358_SP2023_A04_sequence
     }
 
     template <class array_type>
-    void sequence<array_type>::add(const value_type& entry)
+    void sequence<array_type>::add(const array_type& entry)
     {
         assert( size() < CAPACITY );
 

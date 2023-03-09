@@ -97,7 +97,7 @@ namespace CS3358_SP2023_A04_sequence
       void end();
       void advance();
       void move_back();
-      void add(const value_type& entry);
+      void add(const array_type& entry);
       void remove_current();
       // CONSTANT MEMBER FUNCTIONS
       size_type size() const;
