@@ -40,7 +40,7 @@
 //                last item in the sequence).
 
 #include <cassert>
-//#include "sequence.h"
+
 
 namespace CS3358_SP2023_A04_sequence
 {
@@ -118,7 +118,7 @@ namespace CS3358_SP2023_A04_sequence
     bool sequence<array_type>::is_item() const { return (current_index < used); }
 
     template <class array_type>
-    typename sequence<array_type>::value_type sequence<array_type>::current() const
+    array_type sequence<array_type>::current() const
     {
         assert( is_item() );
 

@@ -103,13 +103,13 @@ namespace CS3358_SP2023_A04_sequence
       // CONSTANT MEMBER FUNCTIONS
       size_type size() const;
       bool is_item() const;
-      value_type current() const;
+      array_type current() const;
 
    private:
-      array_type* data[CAPACITY];
+      array_type data[CAPACITY];
       size_type used;
       size_type current_index;
    };
 }
-#include "sequence.Template"
+#include "sequence.template"
 #endif
