@@ -88,7 +88,6 @@ namespace CS3358_SP2023_A04_sequence
    class sequence{
    public:
       // TYPEDEFS and MEMBER SP2020
-      typedef double value_type;
       typedef size_t size_type;
       static const size_type CAPACITY = 10;
       // CONSTRUCTOR
