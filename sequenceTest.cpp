@@ -5,8 +5,7 @@
 #include <iostream>    // provides cout and cin
 #include <cstdlib>     // provides EXIT_SUCCESS
 #include "sequence.h"
-namespace seqOfNum  = CS3358_SP2023_A04_sequenceOfNum;
-namespace seqOfChar = CS3358_SP2023_A04_sequenceOfChar;
+namespace seq  = CS3358_SP2023_A04_sequence;
 using namespace std;
 
 // PROTOTYPES for functions used by this test program:
@@ -50,8 +49,8 @@ char get_character();
 
 int main(int argc, char *argv[])
 {
-   seqOfNum::sequence s1;  // A sequence of double for testing
-   seqOfChar::sequence s2; // A sequence of char for testing
+   CS3358_SP2023_A04_sequence::sequence<double> s1;  // A sequence of double for testing
+   CS3358_SP2023_A04_sequence::sequence<char> s2; // A sequence of char for testing
    int objectNum;    // A number to indicate selection of s1 or s2
    double numHold;   // Holder for a real number
    char charHold;    // Holder for a character

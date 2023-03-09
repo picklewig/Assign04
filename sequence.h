@@ -82,8 +82,9 @@
 
 #include <cstdlib>  // provides size_t
 
-namespace CS3358_SP2023_A04_sequenceOfNum
+namespace CS3358_SP2023_A04_sequence
 {
+   template <class array_type>
    class sequence{
    public:
       // TYPEDEFS and MEMBER SP2020
@@ -105,39 +106,10 @@ namespace CS3358_SP2023_A04_sequenceOfNum
       value_type current() const;
 
    private:
-      value_type data[CAPACITY];
+      array_type* data[CAPACITY];
       size_type used;
       size_type current_index;
    };
 }
-
-namespace CS3358_SP2023_A04_sequenceOfChar
-{
-   class sequence{
-   public:
-      // TYPEDEFS and MEMBER SP2020
-      typedef char value_type;
-      typedef size_t size_type;
-      static const size_type CAPACITY = 10;
-      // CONSTRUCTOR
-      sequence();
-      // MODIFICATION MEMBER FUNCTIONS
-      void start();
-      void end();
-      void advance();
-      void move_back();
-      void add(const value_type& entry);
-      void remove_current();
-      // CONSTANT MEMBER FUNCTIONS
-      size_type size() const;
-      bool is_item() const;
-      value_type current() const;
-
-   private:
-      value_type data[CAPACITY];
-      size_type used;
-      size_type current_index;
-   };
-}
-
+#include "sequence.cpp"
 #endif

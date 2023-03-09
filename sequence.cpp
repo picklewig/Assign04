@@ -42,22 +42,30 @@
 #include <cassert>
 #include "sequence.h"
 
-namespace CS3358_SP2023_A04_sequenceOfNum
+namespace CS3358_SP2023_A04_sequence
 {
-   sequence::sequence() : used(0), current_index(0) { }
+   template <class array_type>
+   const typename sequence<array_type>::size_type sequence<array_type>::DEFAULT_CAPACITY;
 
-   void sequence::start() { current_index = 0; }
+   template <class array_type>
+   sequence<array_type>::sequence() : used(0), current_index(0) { }
 
-   void sequence::end()
+   template <class array_type>
+   void sequence<array_type>::start() { current_index = 0; }
+
+   template <class array_type>
+   void sequence<array_type>::end()
    { current_index = (used > 0) ? used - 1 : 0; }
 
-   void sequence::advance()
+   template <class array_type>
+   void sequence<array_type>::advance()
    {
       assert( is_item() );
       ++current_index;
    }
 
-   void sequence::move_back()
+   template <class array_type>
+   void sequence<array_type>::move_back()
    {
       assert( is_item() );
       if (current_index == 0)
@@ -66,7 +74,8 @@ namespace CS3358_SP2023_A04_sequenceOfNum
          --current_index;
    }
 
-   void sequence::add(const value_type& entry)
+   template <class array_type>
+   void sequence<array_type>::add(const value_type& entry)
    {
       assert( size() < CAPACITY );
 
@@ -90,7 +99,8 @@ namespace CS3358_SP2023_A04_sequenceOfNum
       ++used;
    }
 
-   void sequence::remove_current()
+   template <class array_type>
+   void sequence<array_type>::remove_current()
    {
       assert( is_item() );
 
@@ -101,81 +111,14 @@ namespace CS3358_SP2023_A04_sequenceOfNum
       --used;
    }
 
-   sequence::size_type sequence::size() const { return used; }
+   template <class array_type>
+   sequence<array_type>::size_type sequence<array_type>::size() const { return used; }
 
-   bool sequence::is_item() const { return (current_index < used); }
+   template <class array_type>
+   bool sequence<array_type>::is_item() const { return (current_index < used); }
 
-   sequence::value_type sequence::current() const
-   {
-      assert( is_item() );
-
-      return data[current_index];
-   }
-}
-
-namespace CS3358_SP2023_A04_sequenceOfChar
-{
-   sequence::sequence() : used(0), current_index(0) { }
-
-   void sequence::start() { current_index = 0; }
-
-   void sequence::end() { current_index = (used > 0) ? used - 1 : 0; }
-
-   void sequence::advance()
-   {
-      assert( is_item() );
-      ++current_index;
-   }
-
-   void sequence::move_back()
-   {
-      assert( is_item() );
-      if (current_index == 0)
-         current_index = used;
-      else
-         --current_index;
-   }
-
-   void sequence::add(const value_type& entry)
-   {
-      assert( size() < CAPACITY );
-
-      size_type i;
-
-      if ( ! is_item() )
-      {
-         if (used > 0)
-            for (i = used; i >= 1; --i)
-               data[i] = data[i - 1];
-         data[0] = entry;
-         current_index = 0;
-      }
-      else
-      {
-         ++current_index;
-         for (i = used; i > current_index; --i)
-            data[i] = data[i - 1];
-         data[current_index] = entry;
-      }
-      ++used;
-   }
-
-   void sequence::remove_current()
-   {
-      assert( is_item() );
-
-      size_type i;
-
-      for (i = current_index + 1; i < used; ++i)
-         data[i - 1] = data[i];
-      --used;
-   }
-
-   sequence::size_type sequence::size() const { return used; }
-
-   bool sequence::is_item() const { return (current_index < used); }
-
-   sequence::value_type sequence::current() const
+   template <class array_type>
+   sequence<array_type>::value_type sequence<array_type>::current() const
    {
       assert( is_item() );
 
