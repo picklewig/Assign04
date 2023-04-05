@@ -21,10 +21,8 @@ char get_user_command();
 // Post: The user is prompted to enter a one character command.
 //       The next character is read (skipping blanks and newline
 //       characters), and this character is returned.
-void show_list(sequence<double> src);
-// Pre: (none)
-// Post: The items of src are printed to cout (one per line).
-void show_list(sequence<char> src);
+template <typename Item>
+void show_list(sequence<Item> src);
 // Pre: (none)
 // Post: The items of src are printed to cout (one per line).
 int get_object_num();
@@ -294,17 +292,13 @@ char get_user_command()
    return command;
 }
 
-void show_list(sequence<double> src)
+template <typename Item>
+void show_list(sequence<Item> src)
 {
    for ( src.start(); src.is_item(); src.advance() )
       cout << src.current() << "  ";
 }
 
-void show_list(sequence<char> src)
-{
-   for ( src.start(); src.is_item(); src.advance() )
-      cout << src.current() << "  ";
-}
 
 int get_object_num()
 {
